@@ -50,7 +50,7 @@ kubeadm token create --print-join-command
 
 }
 
-if [[ $1 -eq 'master' ]]
+if [[ $1 = "master" ]]
 then
 echo "Deploying script in Master node"
 sudo hostnamectl set-hostname k8s-control
@@ -58,7 +58,7 @@ setup_node
 setup_cluster
 setup_network
 else
-if [[ $1 -eq 'worker' ]]
+if [[ $1 = "worker" ]]
 then
 echo " Deploying Script in Worker node"
 sudo hostnamectl set-hostname k8s-worker1
