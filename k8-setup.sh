@@ -3,7 +3,7 @@ set -xv
 
 if [[ $# -le 0 ]]
 then
-echo "Usage setup.sh master|worker"
+echo "Usage - setup.sh master|worker"
 exit
 fi
 
