@@ -17,7 +17,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 }
 
 setup_node(){
-echo `hostname -I | cut -d " " -f1` `hostname` | sudo tee -a /etc/hosts
+#echo `hostname -I | cut -d " " -f1` `hostname` | sudo tee -a /etc/hosts
 cat << EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
 br_netfilter
