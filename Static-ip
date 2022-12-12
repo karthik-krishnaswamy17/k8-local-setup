@@ -1,0 +1,62 @@
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    eth0:
+      dhcp4: true
+  version: 2
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.0.5/24
+      gateway4: 192.168.0.1
+      nameservers:
+          addresses: [8.8.8.8, 1.1.1.1]
+
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.1.5/24
+      gateway4: 192.168.1.1
+      nameservers:
+          addresses: [8.8.8.8, 1.1.1.1]
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.159.5/24
+      gateway4: 192.168.159.158
+      nameservers:
+          addresses: [8.8.8.8, 1.1.1.1]
+
+
+# Add in profile or bashrc to traverse via default gateway.
+sudo route add default gw 192.168.0.1
+sudo route add default gw 192.168.1.1
+sudo route add default gw 192.168.159.158
+
+#Add in etc hosts file.
+192.168.0.4 k8s-control
+192.168.159.4 k8s-control
+192.168.1.4 k8s-control
+
+192.168.0.5 k8s-worker1
+192.168.159.5 k8s-worker1
+192.168.1.5 k8s-worker1
+
+192.168.0.6 k8s-worker2
+192.168.159.6 k8s-worker2
+192.168.1.6 k8s-worker2
